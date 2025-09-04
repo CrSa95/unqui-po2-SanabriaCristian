@@ -58,6 +58,8 @@ public abstract class Empleado {
 	}
 	
 	public double sueldoNeto() {
-		return this.sueldoNeto();
+		return this.sueldoBruto() - this.retencionTotal();
 	}
+	
+	public abstract String obtenerTipo();
 }

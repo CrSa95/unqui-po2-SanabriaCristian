@@ -16,19 +16,37 @@ public class Empresa {
 		this.cuit = cuit;
 	}
 	
-	public double liquidarSueldos() {
-		return 0;
+	public void agregarEmpleado(Empleado empleado) {
+		this.empleados.add(empleado);
+	}
+	
+	public void liquidarSueldos() {
+		for (Empleado current : this.empleados) {
+			this.recibos.add(new Recibo(current));		
+		}
 	}
 	
 	public double montoTotalNeto() {
-		return 0;
+		double totalNeto = 0;
+		for (Empleado current : this.empleados) {
+			totalNeto += current.sueldoNeto();		
+		}
+		return totalNeto;
 	}
 	
 	public double montoTotalBruto() {
-		return 0;
+		double totalBruto = 0;
+		for (Empleado current : this.empleados) {
+			totalBruto += current.sueldoBruto();		
+		}
+		return totalBruto;
 	}
 	
 	public double montoTotalRetenciones() {
-		return 0;
+		double totalRetencion = 0;
+		for (Empleado current : this.empleados) {
+			totalRetencion += current.retencionTotal();		
+		}
+		return totalRetencion;
 	}
 }

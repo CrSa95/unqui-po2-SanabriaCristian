@@ -44,5 +44,11 @@ public class EmpleadoTemporario extends Empleado {
 	public double retencionJubilacion() {
 		return (this.sueldoBruto() * 0.10) + (this.cantidadDeHoras * 5);
 	}
+
+	@Override
+	public String obtenerTipo() {
+		// TODO Auto-generated method stub
+		return "Temporario";
+	}
 	
 }

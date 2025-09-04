@@ -50,5 +50,11 @@ public class EmpleadoPermanente extends Empleado {
 	public double retencionJubilacion() {
 		return this.sueldoBruto() * 0.15;
 	}
+
+	@Override
+	public String obtenerTipo() {
+		// TODO Auto-generated method stub
+		return "Permanente";
+	}
 	
 }

@@ -6,7 +6,13 @@ public class Concepto {
 	double monto;
 	
 	Concepto(Empleado empleado){
-	
+		if(empleado.obtenerTipo() == "Temporario") {
+			this.descripcion = "Obra Social: 10% de su sueldo bruto + $25 si supera los 50 años";
+			this.monto = empleado.retencionObraSocial();
+		}
+		else {
+			
+		}
 	}
 	
 }

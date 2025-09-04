@@ -19,6 +19,7 @@ public class Recibo {
 		this.fechaEmision = LocalDate.now();
 		this.sueldoBruto = empleado.sueldoBruto();
 		this.sueldoNeto = empleado.sueldoNeto();
+		this.conceptos.add(new Concepto(empleado));
 	}
 	
 }
