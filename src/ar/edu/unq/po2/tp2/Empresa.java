@@ -9,6 +9,7 @@ public class Empresa {
 	String nombre;
 	int cuit;
 	List<Empleado> empleados = new ArrayList<Empleado>();
+	List<Recibo> recibos = new ArrayList<Recibo>();
 	
 	Empresa(String nombre, int cuit){
 		this.nombre = nombre;

@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public abstract class Empleado {
 	
@@ -17,36 +18,46 @@ public abstract class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public String getDireccion() {
+		return this.direccion;
+	}
+	
 	public int edad() {
-		return 0;
+		return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
 	} 
 	
 	public void setDireccion(String direccion) {
-		
+		this.direccion = direccion;
 	}
 	
 	public void setEstadoCivil(String estadoCivil) {
-		
+		this.estadoCivil = estadoCivil;
 	}
 	
 	public void setSueldoBasico(double sueldo) {
-		
+		this.sueldoBasico = sueldo;
 	}
 	
 	public double getSueldoBasico() {
 	
-		return 0;
+		return this.sueldoBasico;
 	}
 	
-	public double sueldoBruto() {
-		return 0;
-	}
+	abstract double sueldoBruto();
 	
-	public double retenciones() {
-		return 0;
+	abstract double retencionObraSocial();
+	
+	abstract double retencionJubilacion();
+	
+	public double retencionTotal() {
+		return this.retencionObraSocial() + this.retencionJubilacion();
 	}
 	
 	public double sueldoNeto() {
-		return 0;
+		return this.sueldoNeto();
 	}
 }
