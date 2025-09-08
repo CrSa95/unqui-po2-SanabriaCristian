@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpleadoTemporario extends Empleado {
 
@@ -33,22 +35,32 @@ public class EmpleadoTemporario extends Empleado {
 	}
 	
 	public int descuentoPorMayor() {
-		if(this.edad() > 50) {
-			return 25;
-		}
-		else {
-			return 0;
-		}
+		return this.edad() > 50 ? 25 : 0;
 	}
 	
 	public double retencionJubilacion() {
 		return (this.sueldoBruto() * 0.10) + (this.cantidadDeHoras * 5);
 	}
 
+	public List<Concepto> generarConceptos() {
+	    List<Concepto> conceptos = new ArrayList<>();
+
+	    conceptos.add(new Concepto("Sueldo Básico", this.getSueldoBasico()));
+
+	    if (this.getCantidadDeHoras() > 0) {
+	        conceptos.add(new Concepto("Horas extras", 40 * this.cantidadDeHoras));
+	    }
+
+	    conceptos.add(new Concepto("Obra Social", -this.retencionObraSocial()));
+	    conceptos.add(new Concepto("Aportes Jubilatorios", -this.retencionJubilacion()));
+
+	    return conceptos;
+	}
+
 	@Override
-	public String obtenerTipo() {
+	int retencionConstante() {
 		// TODO Auto-generated method stub
-		return "Temporario";
+		return 0;
 	}
 	
 }

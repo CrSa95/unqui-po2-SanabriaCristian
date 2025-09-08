@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpleadoPermanente extends Empleado {
 
@@ -35,12 +37,7 @@ public class EmpleadoPermanente extends Empleado {
 	}
 	
 	public int asignacionConyuge() {
-		if(conyuge) {
-			return 100;
-		}
-		else {
-			return 0;
-		}
+		return this.conyuge ? 100 : 0;
 	}
 	
 	public double retencionObraSocial() {
@@ -51,10 +48,32 @@ public class EmpleadoPermanente extends Empleado {
 		return this.sueldoBruto() * 0.15;
 	}
 
-	@Override
-	public String obtenerTipo() {
-		// TODO Auto-generated method stub
-		return "Permanente";
+	public List<Concepto> generarConceptos() {
+	    List<Concepto> conceptos = new ArrayList<>();
+
+	    conceptos.add(new Concepto("Sueldo Básico", this.getSueldoBasico()));
+
+	    if (this.cantidadDeHijos > 0) {
+	        conceptos.add(new Concepto("Asignación por Hijo", 150 * this.cantidadDeHijos));
+	    }
+
+	    if (this.estadoCivil.equalsIgnoreCase("casado")) {
+	        conceptos.add(new Concepto("Asignación por Cónyuge", 100));
+	    }
+
+	    if (this.getAntiguedad() > 0) {
+	        conceptos.add(new Concepto("Antigüedad", 50 * this.getAntiguedad()));
+	    }
+	    
+	    conceptos.add(new Concepto("Obra Social", -this.retencionObraSocial()));
+	    conceptos.add(new Concepto("Aportes Jubilatorios", -this.retencionJubilacion()));
+
+	    return conceptos;
 	}
-	
+
+	@Override
+	int retencionConstante() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

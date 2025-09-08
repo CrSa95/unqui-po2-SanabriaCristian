@@ -2,6 +2,7 @@ package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 public abstract class Empleado {
 	
@@ -60,6 +61,8 @@ public abstract class Empleado {
 	public double sueldoNeto() {
 		return this.sueldoBruto() - this.retencionTotal();
 	}
+
+	abstract int retencionConstante();
 	
-	public abstract String obtenerTipo();
+	abstract List<Concepto> generarConceptos();
 }

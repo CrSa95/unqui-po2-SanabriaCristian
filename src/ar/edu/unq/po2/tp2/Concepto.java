@@ -2,17 +2,19 @@ package ar.edu.unq.po2.tp2;
 
 public class Concepto {
 	
-	String descripcion;
-	double monto;
-	
-	Concepto(Empleado empleado){
-		if(empleado.obtenerTipo() == "Temporario") {
-			this.descripcion = "Obra Social: 10% de su sueldo bruto + $25 si supera los 50 años";
-			this.monto = empleado.retencionObraSocial();
-		}
-		else {
-			
-		}
-	}
-	
+    private String descripcion;
+    private double monto;
+
+    public Concepto(String descripcion, double monto) {
+        this.descripcion = descripcion;
+        this.monto = monto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
 }
