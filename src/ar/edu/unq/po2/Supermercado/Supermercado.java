@@ -27,11 +27,17 @@ public class Supermercado {
 
 	public Double getPrecioTotal() {
 		// TODO Auto-generated method stub
+		/*
 		double total = 0;
 		for (Producto current : this.productos) {
 			total += current.getPrecio();		
 		}
-		return total;
+		return total;  
+		 */
+		return this.productos
+			    .stream()
+			    .mapToDouble(Producto::getPrecio)
+			    .sum();
 	}
 
 }

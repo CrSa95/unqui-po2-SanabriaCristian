@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import ar.edu.unq.po2.Ejercicio3Trabajador.Ingreso;
+
 public class Empresa {
 	
 	String nombre;
@@ -27,26 +29,44 @@ public class Empresa {
 	}
 	
 	public double montoTotalNeto() {
+		/*
 		double totalNeto = 0;
 		for (Empleado current : this.empleados) {
 			totalNeto += current.sueldoNeto();		
 		}
 		return totalNeto;
+		*/
+		return this.empleados
+			    .stream()
+			    .mapToDouble(Empleado::sueldoNeto)
+			    .sum();
 	}
 	
 	public double montoTotalBruto() {
+		/*
 		double totalBruto = 0;
 		for (Empleado current : this.empleados) {
 			totalBruto += current.sueldoBruto();		
 		}
 		return totalBruto;
+		*/
+		return this.empleados
+			    .stream()
+			    .mapToDouble(Empleado::sueldoBruto)
+			    .sum();
 	}
 	
 	public double montoTotalRetenciones() {
+		/*
 		double totalRetencion = 0;
 		for (Empleado current : this.empleados) {
 			totalRetencion += current.retencionTotal();		
 		}
 		return totalRetencion;
+		*/
+		return this.empleados
+			    .stream()
+			    .mapToDouble(Empleado::retencionTotal)
+			    .sum();
 	}
 }

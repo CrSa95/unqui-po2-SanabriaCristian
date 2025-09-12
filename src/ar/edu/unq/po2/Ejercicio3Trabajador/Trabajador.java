@@ -15,19 +15,31 @@ public class Trabajador {
 	}
 	
 	public double getTotalPercibido() {
+		/*
 		double totalPercibido = 0;
 		for (Ingreso current : this.ingresosAnuales) {
 			totalPercibido += current.getMontoPercibido();		
 		}
 		return totalPercibido;
+		*/
+		return this.ingresosAnuales
+			    .stream()
+			    .mapToDouble(Ingreso::getMontoPercibido)
+			    .sum();
 	}
 	
 	public double getMontoImponible() {
+		/*
 		double totalMontoImponible = 0;
 		for (Ingreso current : this.ingresosAnuales) {
 			totalMontoImponible += current.getMontoImponible();		
 		}
 		return totalMontoImponible;
+		*/
+		return this.ingresosAnuales
+			    .stream()
+			    .mapToDouble(Ingreso::getMontoImponible)
+			    .sum();
 	}
 	
 	public double getImpuestoAPagar() {
