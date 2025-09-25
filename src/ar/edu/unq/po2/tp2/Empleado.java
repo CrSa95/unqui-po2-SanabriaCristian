@@ -63,6 +63,6 @@ public abstract class Empleado {
 	}
 
 	abstract int retencionConstante();
-	
+	//esto deberia hacerlo otra clase por fuera de Empleado, ya que no es responsabilidad suya
 	abstract List<Concepto> generarConceptos();
 }
