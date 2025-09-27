@@ -8,14 +8,9 @@ public class Caja implements Agencia {
 		
 	}
 	
-	public void registrarProducto(Producto producto, int cantidad) {
-		this.montoTotal += producto.getPrecio()*cantidad;
-		producto.decrementarStock(cantidad);
-	}
-	
-	public void registrarProducto(Factura factura) {
-		this.montoTotal += factura.montoTotal();
-		this.registrarPago(factura);
+	public void registrarProducto(Facturable producto) {
+		this.montoTotal += producto.getMontoAPagar();
+		producto.quitarStock();
 	}
 	
 	public double getMontoTotal() {

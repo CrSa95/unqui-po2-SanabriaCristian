@@ -36,10 +36,10 @@ public class ProductoTest {
 	
 	@Test
 	public void testDecrementarStock() {
-		arroz.decrementarStock(2);;
-		assertEquals(0, arroz.getStock());
+		arroz.decrementarStock();
+		assertEquals(1, arroz.getStock());
 		
-		vino.decrementarStock(1);;
+		vino.decrementarStock();
 		assertEquals(1, vino.getStock());
 	}
 }

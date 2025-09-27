@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp4;
 
-public class Producto {
+public class Producto implements Facturable{
 	
 	private double precio;
 	private int stock;
@@ -18,11 +18,22 @@ public class Producto {
 		this.precio = precio;
 	}
 	
-	public void decrementarStock(int cantidad) {
-		this.stock -= cantidad;
+	public void decrementarStock() {
+		this.stock -= 1;
 	}
 	
 	public int getStock() {
 		return this.stock;
+	}
+
+	@Override
+	public double getMontoAPagar() {
+		// TODO Auto-generated method stub
+		return this.getPrecio();
+	}
+
+	@Override
+	public void quitarStock() {
+		this.decrementarStock();	
 	}
 }

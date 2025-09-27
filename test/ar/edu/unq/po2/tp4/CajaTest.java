@@ -25,22 +25,22 @@ public class CajaTest {
 	@Test
 	public void testRegistrarProducto() {
 		assertEquals(0, caja.getMontoTotal());
-		caja.registrarProducto(arroz,2);
-		caja.registrarProducto(vino,1);
+		caja.registrarProducto(arroz);
+		caja.registrarProducto(vino);
 		caja.registrarProducto(impuesto);
 		caja.registrarProducto(servicio);
-		assertEquals(1278d, caja.getMontoTotal());
-		assertEquals(0, arroz.getStock());
+		assertEquals(1269d, caja.getMontoTotal());
+		assertEquals(1, arroz.getStock());
 		assertEquals(1, vino.getStock());
 	}
 	
 	@Test
 	public void testObtenerElTotal() {
 		assertEquals(0, caja.getMontoTotal());
-		caja.registrarProducto(arroz,2);
-		caja.registrarProducto(vino,1);
+		caja.registrarProducto(arroz);
+		caja.registrarProducto(vino);
 		caja.registrarProducto(impuesto);
 		caja.registrarProducto(servicio);
-		assertEquals(1278d, caja.getMontoTotal());
+		assertEquals(1269d, caja.getMontoTotal());
 	}
 }

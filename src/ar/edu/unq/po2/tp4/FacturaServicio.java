@@ -12,5 +12,17 @@ public class FacturaServicio extends Factura{
 		// TODO Auto-generated method stub
 		return super.getTasaDelServicio();
 	}
+
+	@Override
+	public double getMontoAPagar() {
+		// TODO Auto-generated method stub
+		return this.montoTotal();
+	}
+
+	@Override
+	public void quitarStock() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp4;
 
-abstract class Factura {
+abstract class Factura implements Facturable {
 	
 	private double costoPorUnidadConsumida;
 	private int unidadesConsumidas;
